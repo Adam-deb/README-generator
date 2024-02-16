@@ -1,0 +1,22 @@
+{
+  "name": "readme_generator",
+  "version": "1.0.0",
+  "description": "Command-line application which generates a high quality README file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adam-deb/README-generator.git"
+  },
+  "author": "Adam Debski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adam-deb/README-generator/issues"
+  },
+  "homepage": "https://github.com/Adam-deb/README-generator#readme",
+  "dependencies": {
+    "inquirer": "^6.5.0"
+  }
+}

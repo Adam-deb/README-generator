@@ -1,9 +1,49 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+function generateLicenseBadge(license) {
+    let badge = '';
+    switch (license) {
+        case "MIT License":
+            badge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+            break;
+        case "GNU General Public License v3.0 (GPL-3.0)":
+            badge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+            break;
+        case "Apache License 2.0":
+            badge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+            break;
+        case "GNU General Public License v2.0 (GPL-2.0)":
+            badge = '[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)';
+            break;
+        case "BSD 3-Clause 'New' or 'Revised' License":
+            badge = '[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
+            break;
+        case "GNU Lesser General Public License v3.0 (LGPL-3.0)":
+            badge = '[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)';
+            break;
+        case "MIT No Attribution License (MIT-0)":
+            badge = '[![License: MIT-0](https://img.shields.io/badge/License-MIT--0-blue.svg)](https://opensource.org/licenses/MIT-0)';
+            break;
+        case "Mozilla Public License 2.0 (MPL-2.0)":
+            badge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
+            break;
+        case "ISC License (ISC)":
+            badge = '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)';
+            break;
+        case "GNU Affero General Public License v3.0 (AGPL-3.0)":
+            badge = '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)';
+            break;
+        default:
+            badge = '';
+    }
+    return badge;
+}
+
 function GenerateMdFile(data) {
     let tableOfContents = '';
 
+    // Generate Table of Contents
     if (data.installation) tableOfContents += '- [Installation](#-Installation)\n';
     if (data.usage) tableOfContents += '- [Usage](#-Usage)\n';
     if (data.license) tableOfContents += '- [License](#-License)\n';
@@ -11,8 +51,10 @@ function GenerateMdFile(data) {
     if (data.tests) tableOfContents += '- [Tests](#-Tests)\n';
     tableOfContents += '- [Questions](#-Questions)\n';
 
+    const licenseBadge = generateLicenseBadge(data.license);
+
     return `
-# ${data.title} 
+# ${data.title} ${licenseBadge}
 
 # Description
 ${data.description}
@@ -120,7 +162,7 @@ inquirer
         },
     ])
     .then(data => {
-        const filename = 'README.md';
+        const filename = 'exampleREADME.md';
 
         fs.writeFile(filename, GenerateMdFile(data), (err) =>
             err ? console.log(err) : console.log('the README file has been generated')

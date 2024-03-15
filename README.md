@@ -10,7 +10,9 @@ The README Generator is a command-line tool designed to streamline the process o
   
 </video>
 
-If you encounter issues with video playback, the MP4 file is located in the Assets folder in the repository.
+If you encounter issues with video playback, the MP4 file is located in the Assets folder in the repository or use the following link:
+
+[Link to video](https://drive.google.com/file/d/1AXupdibSbk3EZm2qmgXGc7LH0vDI-h2Z/view?usp=sharing)
 
 ## Installation
 To install please run the following commands in your terminal:

@@ -43,7 +43,6 @@ function generateLicenseBadge(license) {
 function GenerateMdFile(data) {
     let tableOfContents = '';
 
-    // Generate Table of Contents
     if (data.installation) tableOfContents += '- [Installation](#-Installation)\n';
     if (data.usage) tableOfContents += '- [Usage](#-Usage)\n';
     if (data.license) tableOfContents += '- [License](#-License)\n';
